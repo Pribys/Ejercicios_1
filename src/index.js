@@ -1,17 +1,47 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const App = () => {
+    const course = 'Half Stack application development'
+    const part1 = 'Fundamentals of React'
+    const exercises1 = 10
+    const part2 = 'Using props to pass data'
+    const exercises2 = 7
+    const part3 = 'State of a component'
+    const exercises3 = 14
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    const Header = (props) => {  
+        return (<h1>{props.course}</h1>)
+    } 
+    const Content = (props) => <p> {props.part} {props.exercises} </p>
+    const Total = (props) => <p>Number of exercises {props.exercises1 + props.exercises2 + props.exercises3}</p>
+  
+    return (
+      <div>
+        <Header course = {course} />
+        <Content part = {part1} exercises = {exercises1} />
+        <Content part = {part2} exercises = {exercises2} />
+        <Content part = {part3} exercises = {exercises3} />
+        <Total exercises1 = {exercises1} exercises2 = {exercises2} exercises3 = {exercises3} /> 
+      </div>
+    )
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
+
+/*
+/ Ejercicio 1.1
+/ Se trata de factorizar el código inicial para que haya tres componentes nuevos: Header, Content y Total. En las líneas 13, 14 y 15
+/ se define el componente Header. Se hace de modo completo, sin usar abreviaturas. Después, en la línea 19 se utiliza el componente.
+/ Observar que el props se llama course y el valor que le damos es el almacenado en course.
+/ En la línea 16 se define el componente Content con notación abreviada, y se utiliza en las líneas 21, 22 y 23. El otro componente 
+/ es sencillo. Solo fijarse en que para sumar se mete toda la operación entre llaves.
+/
+/
+/
+/
+/
+/
+/
+/
+*/
