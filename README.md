@@ -11,3 +11,5 @@ Avancemos para usar objetos en nuestra aplicación. Modifique las definiciones d
 # 1.4: información del curso paso 4
 Se vuelve a modificar la información del componente App (viene dado por el enunciado), ahora para utilizar un array, y se trata de modificar el código otra vez para adaptarlo a los nuevos datos.
 
+# 1.5: información del curso paso 5
+Ahora toda la información va en un solo objeto, se trata de ajustar de nuevo el código
