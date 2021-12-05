@@ -1,43 +1,49 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const App = () => {
-  const course = 'Half Stack application development'
-  const parts = [
-    {
-      name: 'Fundamentals of React',
-      exercises: 10
-    },
-    {
-      name: 'Using props to pass data',
-      exercises: 7
-    },
-    {
-      name: 'State of a component',
-      exercises: 14
-    }
-  ]
+const Header = (props) => {  
+  return (<h1>{props.course.name}</h1>)
+} 
+const Part = (props) => <p> {props.name} {props.exercises} </p>
+const Content = (props) => {
+  return(
+    <div>
+      <Part name = {props.parts[0].name} exercises = {props.parts[0].exercises} /> 
+      <Part name = {props.parts[1].name} exercises = {props.parts[1].exercises} />
+      <Part name = {props.parts[2].name} exercises = {props.parts[2].exercises} />
+    </div>
+  )
+}
+const Total = (props) => <p>Number of exercises {props.parts[0].exercises + props.parts[1].exercises + 
+  props.parts[2].exercises}</p>
 
-    const Header = (props) => {  
-        return (<h1>{props.course}</h1>)
-    } 
-    
-    const Part = (props) => <p> {props.part.name} {props.part.exercises} </p>
-    const Content = () => 
-      <div>
-        <Part part = {parts[0]} /> 
-        <Part part = {parts[1]} />
-        <Part part = {parts[2]} />
-      </div>
-    const Total = (props) => <p>Number of exercises {props.parts0 + props.parts1 + props.parts2}</p>
+const App = () => {
+
+  const course = {
+    name: 'Half Stack application development',
+    parts: [
+      {
+        name: 'Fundamentals of React',
+        exercises: 10
+      },
+      {
+        name: 'Using props to pass data',
+        exercises: 7
+      },
+      {
+        name: 'State of a component',
+        exercises: 14
+      }
+    ]
+  }
   
-    return (
-      <div>
-        <Header course = {course} />
-        <Content  />
-        <Total parts0 = {parts[0].exercises} parts1 = {parts[1].exercises} parts2 = {parts[2].exercises} /> 
-      </div>
-    )
+  return (
+    <div>
+      <Header course = {course} />
+      <Content parts = {course.parts} />
+      <Total parts = {course.parts} /> 
+    </div>
+  )
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
@@ -64,6 +70,16 @@ ReactDOM.render(<App />, document.getElementById('root'))
 / Se vuelve a modificar la definición de los datos, según vemos en líneas 6 a 19, y se trata de modificar el código de nuevo.
 / Las modificaciones son bastante naturales, como puede verse en el código. Lo única que no salió a la primera es el componente
 / Total, ya que no se puede usar algo tipo parts[0] como identificador, por lo que lo he sustituido por parts0
+/
+/ Ejercicio 1.5
+/ Se vuelve a modificar la definición de los datos, esta vez para ponerlo todo en un array único, y debe modificarse el código en
+/ consecuencia. Además, veo que el ejercicio 1.4 no está bien, tendría que haber pasado los datos del siguiente modo en el return
+/ final: <Header course={course} />
+/        <Content parts={parts} />
+/        <Total parts={parts} />, lo corregiré en este ejercicio.
+/ El componente Content no se puede escribir simplificado, hace falta el return.
+/
+/
 /
 /
 */
