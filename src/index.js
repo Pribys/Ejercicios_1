@@ -2,32 +2,38 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 const App = () => {
-    const course = 'Half Stack application development'
-    const part1 = 'Fundamentals of React'
-    const exercises1 = 10
-    const part2 = 'Using props to pass data'
-    const exercises2 = 7
-    const part3 = 'State of a component'
-    const exercises3 = 14
+  const course = 'Half Stack application development'
+  const part1 = {
+    name: 'Fundamentals of React',
+    exercises: 10
+  }
+  const part2 = {
+    name: 'Using props to pass data',
+    exercises: 7
+  }
+  const part3 = {
+    name: 'State of a component',
+    exercises: 14
+  }
 
     const Header = (props) => {  
         return (<h1>{props.course}</h1>)
     } 
     
-    const Part = (props) => <p> {props.part} {props.exercises} </p>
+    const Part = (props) => <p> {props.part.name} {props.part.exercises} </p>
     const Content = () => 
       <div>
-        <Part part = {part1} exercises = {exercises1} /> 
-        <Part part = {part2} exercises = {exercises2} />
-        <Part part = {part3} exercises = {exercises3} />
+        <Part part = {part1} /> 
+        <Part part = {part2} />
+        <Part part = {part3} />
       </div>
-    const Total = (props) => <p>Number of exercises {props.exercises1 + props.exercises2 + props.exercises3}</p>
+    const Total = (props) => <p>Number of exercises {props.part1 + props.part2 + props.part3}</p>
   
     return (
       <div>
         <Header course = {course} />
         <Content  />
-        <Total exercises1 = {exercises1} exercises2 = {exercises2} exercises3 = {exercises3} /> 
+        <Total part1 = {part1.exercises} part2 = {part2.exercises} part3 = {part3.exercises} /> 
       </div>
     )
 }
@@ -47,6 +53,13 @@ ReactDOM.render(<App />, document.getElementById('root'))
 / lugar, solo representa tres componentes Part de los cuales cada uno representa el nombre y el número de ejercicios de una parte. 
 / En la línea 17 se define el componente Part y en las siguientes de redefine Content. Este último actúa como un mero contenedor ya 
 / que es Part lo que recibe los argumentos. Esto también lo vemos en la declaración de la línea 29.
+/
+/ Ejercicio 1.3
+/ Entre las líneas 5 y 17 se da una nueva definición de los datos, se trata de cuadrar el código para que todo funcione.
+/ Vemos que se trata de definir bien, de manera coherente, todos los nombres asociados a las props
+/
+/
+/
 /
 /
 /
