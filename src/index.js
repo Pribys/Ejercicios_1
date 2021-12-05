@@ -13,15 +13,20 @@ const App = () => {
     const Header = (props) => {  
         return (<h1>{props.course}</h1>)
     } 
-    const Content = (props) => <p> {props.part} {props.exercises} </p>
+    
+    const Part = (props) => <p> {props.part} {props.exercises} </p>
+    const Content = () => 
+      <div>
+        <Part part = {part1} exercises = {exercises1} /> 
+        <Part part = {part2} exercises = {exercises2} />
+        <Part part = {part3} exercises = {exercises3} />
+      </div>
     const Total = (props) => <p>Number of exercises {props.exercises1 + props.exercises2 + props.exercises3}</p>
   
     return (
       <div>
         <Header course = {course} />
-        <Content part = {part1} exercises = {exercises1} />
-        <Content part = {part2} exercises = {exercises2} />
-        <Content part = {part3} exercises = {exercises3} />
+        <Content  />
         <Total exercises1 = {exercises1} exercises2 = {exercises2} exercises3 = {exercises3} /> 
       </div>
     )
@@ -37,10 +42,11 @@ ReactDOM.render(<App />, document.getElementById('root'))
 / En la línea 16 se define el componente Content con notación abreviada, y se utiliza en las líneas 21, 22 y 23. El otro componente 
 / es sencillo. Solo fijarse en que para sumar se mete toda la operación entre llaves.
 /
-/
-/
-/
-/
+/ Ejercicio 1.2
+/ Refactorice el componente Content para que no represente ningún nombre de partes o su número de ejercicios por sí mismo. En su 
+/ lugar, solo representa tres componentes Part de los cuales cada uno representa el nombre y el número de ejercicios de una parte. 
+/ En la línea 17 se define el componente Part y en las siguientes de redefine Content. Este último actúa como un mero contenedor ya 
+/ que es Part lo que recibe los argumentos. Esto también lo vemos en la declaración de la línea 29.
 /
 /
 /
