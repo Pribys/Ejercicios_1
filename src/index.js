@@ -3,18 +3,20 @@ import ReactDOM from 'react-dom'
 
 const App = () => {
   const course = 'Half Stack application development'
-  const part1 = {
-    name: 'Fundamentals of React',
-    exercises: 10
-  }
-  const part2 = {
-    name: 'Using props to pass data',
-    exercises: 7
-  }
-  const part3 = {
-    name: 'State of a component',
-    exercises: 14
-  }
+  const parts = [
+    {
+      name: 'Fundamentals of React',
+      exercises: 10
+    },
+    {
+      name: 'Using props to pass data',
+      exercises: 7
+    },
+    {
+      name: 'State of a component',
+      exercises: 14
+    }
+  ]
 
     const Header = (props) => {  
         return (<h1>{props.course}</h1>)
@@ -23,17 +25,17 @@ const App = () => {
     const Part = (props) => <p> {props.part.name} {props.part.exercises} </p>
     const Content = () => 
       <div>
-        <Part part = {part1} /> 
-        <Part part = {part2} />
-        <Part part = {part3} />
+        <Part part = {parts[0]} /> 
+        <Part part = {parts[1]} />
+        <Part part = {parts[2]} />
       </div>
-    const Total = (props) => <p>Number of exercises {props.part1 + props.part2 + props.part3}</p>
+    const Total = (props) => <p>Number of exercises {props.parts0 + props.parts1 + props.parts2}</p>
   
     return (
       <div>
         <Header course = {course} />
         <Content  />
-        <Total part1 = {part1.exercises} part2 = {part2.exercises} part3 = {part3.exercises} /> 
+        <Total parts0 = {parts[0].exercises} parts1 = {parts[1].exercises} parts2 = {parts[2].exercises} /> 
       </div>
     )
 }
@@ -58,9 +60,10 @@ ReactDOM.render(<App />, document.getElementById('root'))
 / Entre las líneas 5 y 17 se da una nueva definición de los datos, se trata de cuadrar el código para que todo funcione.
 / Vemos que se trata de definir bien, de manera coherente, todos los nombres asociados a las props
 /
-/
-/
-/
+/ Ejercicio 1.4
+/ Se vuelve a modificar la definición de los datos, según vemos en líneas 6 a 19, y se trata de modificar el código de nuevo.
+/ Las modificaciones son bastante naturales, como puede verse en el código. Lo única que no salió a la primera es el componente
+/ Total, ya que no se puede usar algo tipo parts[0] como identificador, por lo que lo he sustituido por parts0
 /
 /
 */

@@ -8,3 +8,6 @@ Refactorice el componente Content para que no represente ningún nombre de parte
 # 1.3: información del curso, paso 3
 Avancemos para usar objetos en nuestra aplicación. Modifique las definiciones de las variables del componente App de la siguiente manera y también refactorice la aplicación para que siga funcionando: (se definen de otra manera las constantes con los datos)
 
+# 1.4: información del curso paso 4
+Se vuelve a modificar la información del componente App (viene dado por el enunciado), ahora para utilizar un array, y se trata de modificar el código otra vez para adaptarlo a los nuevos datos.
+
